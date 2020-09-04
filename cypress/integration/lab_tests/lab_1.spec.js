@@ -1,7 +1,7 @@
 describe('Lab 1', () => {
   it('Successfully loads', () => {
     cy.fixture('test_values').then((json) => {
-      cy.visit(`${json.test_context || ''}/lab_1/`); // change URL to match your dev URL
+      cy.visit(`https://brandonmccoy1415.github.io/public/lab_1/`); // change URL to match your dev URL
       cy.htmlvalidate();
     });
   });
