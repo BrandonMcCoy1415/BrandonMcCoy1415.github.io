@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title class="titleTitle">Brandon McCoy's Lab 4</title>
+    <link href="styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class='header'>
+      <h1 class="headerTitle">Brandon McCoy's Lab 4</h1>
+    </div>
+    
+
+<div class="container">
+    <form action="/api" method="post">
+      <ul class="flex-outer">
+        <li>
+          <label for="fname">First Name</label>
+          <input type="text" name="fname" id="fname" maxlength="140" >
+        </li>
+        <li>
+          <label for="lname">Last Name</label>
+          <input type="text" name="lname" id="lname" maxlength="140" >
+        </li>
+        <li>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" >
+        </li>
+        <li>
+          <label for="phone">Phone</label>
+          <input type="tel" name="phone" id="phone" >
+        </li>
+        <li>
+          <label for="message">Message</label>
+          <textarea rows="6" cols="33" name="message" id="message" ></textarea>
+        </li>
+        <li>
+          <p class="checkbox-list-label">Age</p>
+          <ul class="flex-inner">
+            <li>
+              <input type="checkbox" name="eightteen-to-thirtyfive" id="eightteen-to-thirtyfive">
+              <label class="box1" for="eightteen-to-thirtyfive">18-35</label>
+            </li>
+            <li>
+              <input type="checkbox" name="thirtyfive-to-fifty" id="thirtyfive-to-fifty">
+              <label class="box2" for="thirtyfive-to-fifty">35-50</label>
+            </li>
+            <li>
+              <input type="checkbox" name="fifty-to-sixtyfive" id="fifty-to-sixtyfive">
+              <label class="box3" for="fifty-to-sixtyfive">50-65</label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <button type="submit" name="button" id="button">Submit Form</button>
+          <button type="button" name="activate" id="activate" onclick="testFunction()">Activate</button>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <script> function testFunction() {
+    fetch('/api')
+    .then((response) => response.text())
+    .then((response) => {
+         console.log(response);
+         const headerTitle = document.querySelector('.headerTitle');
+         const titleTitle = document.querySelector('.titleTitle');
+         const checkboxLabel = document.querySelector('.checkbox-list-label');
+         const checkboxsAll = document.querySelectorAll('.flex-inner li label');
+         const flexOuter = document.querySelector('.flex-outer');
+         const fruitArray = ['Apple', 'Orange', 'Banana'];
+
+         checkboxsAll.forEach((element, i) => {
+             element.innerText = fruitArray[i]
+         });
+         
+         
+         checkboxLabel.innerHTML = 'FRUITS';
+         headerTitle.innerHTML = response;
+         titleTitle.innerHTML = response;
+
+         flexOuter.style = 'margin: 0 auto';
+         document.body.style.backgroundColor='#e6542f';
+
+    });
+
+    
+    
+  }
+</script>
+  </body>
+</html>
