@@ -1,4 +1,21 @@
 // You may wish to find an effective randomizer function on MDN.
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function getRandomArr() {
+  const emptyArray = [];
+  emptyArray.length = 10;
+
+  for (let i = 0; i < 10; i+=1) {
+    let randNum = getRandomInt(243);
+    while (emptyArray.includes(randNum) == true) {
+      randNum = getRandomInt(243)
+    }
+    emptyArray[i] = randNum;
+  }
+  return emptyArray;
+}
 
 function range(int) {
   const arr = [];
@@ -30,7 +47,26 @@ document.body.addEventListener('submit', async (e) => {
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
       // You're going to do your lab work in here. Replace this comment.
+      if (document.querySelector('.flex-inner')) {
+        document.querySelector('.flex-inner').remove();
+      }
+      let randArr = getRandomArr();
+      const countryList = randArr.map(x => fromServer[x])
+      const countryListSorted = countryList.sort((a, b) => sortFunction(b, a, 'name'));
+      const ul = document.createElement('ul');
+      ul.className = 'flex-inner';
+      $('form').prepend(ul);
+
+      countryListSorted.forEach((el, i) => {
+        const li =  document.createElement('li');
+        $(li).append(`<input type="checkbox" value=${el.code} id=${el.code} />`);
+        $(li).append(`<label for=${el.code}>${el.name}</label>`);
+        $(ul).append(li);
+      })
+
       console.log('fromServer', fromServer);
+     
+      console.log(countryListSorted);
     })
     .catch((err) => console.log(err));
 });
