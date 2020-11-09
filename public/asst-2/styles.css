@@ -49,7 +49,6 @@ input.search {
   padding: 100;
   left: -10;
   position: relative;
-  text-transform: capitalize;
 }
 
 .suggestions li {
@@ -64,15 +63,17 @@ input.search {
   display: flex;
   justify-content: space-between;
 }
-
+span {
+    text-transform: lowercase;
+}
 span.name {
   font-size: 20px;
-   text-transform: lowercase; 
+   text-transform: capitalize; 
 }
 
 span.population {
   font-size: 20px;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 span.match {
