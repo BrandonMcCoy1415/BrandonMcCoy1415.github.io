@@ -67,7 +67,7 @@ input.search {
 
 span.name {
   font-size: 20px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 span.population {
