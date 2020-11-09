@@ -49,7 +49,7 @@ input.search {
   padding: 100;
   left: -10;
   position: relative;
-  
+  text-transform: capitalize;
 }
 
 .suggestions li {
@@ -67,12 +67,12 @@ input.search {
 
 span.name {
   font-size: 20px;
-  /* text-transform: capitalize; */
+   text-transform: lowercase; 
 }
 
 span.population {
   font-size: 20px;
-  text-transform: capitalize;
+  text-transform: lowercase;
 }
 
 span.match {
