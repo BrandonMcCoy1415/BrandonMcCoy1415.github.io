@@ -63,9 +63,7 @@ input.search {
   display: flex;
   justify-content: space-between;
 }
-span {
-    text-transform: lowercase;
-}
+
 span.name {
   font-size: 20px;
    text-transform: capitalize; 

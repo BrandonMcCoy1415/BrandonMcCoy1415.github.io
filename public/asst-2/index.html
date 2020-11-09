@@ -42,8 +42,8 @@
             const categoryName = info.category.replace(regex, `<span class="match">${this.value}</span>`);
             return `
                 <li>
-                    <span class="name">${restaurantName}, ${categoryName}</span>
-                    <span class="population">${info.address_line_1}, ${info.city} ${info.state}, ${info.zip}</span>
+                    <span class="name">${restaurantName.toLowerCase()}, ${categoryName.toLowerCase()}</span>
+                    <span class="population">${info.address_line_1.toLowerCase()}, ${info.city.toLowerCase()} ${info.state}, ${info.zip}</span>
                 </li>
             `;
         }).join('');
