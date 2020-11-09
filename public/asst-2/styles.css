@@ -1,0 +1,87 @@
+html {
+    box-sizing: border-box;
+    background: #46c4ff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    margin: 50;
+  }
+  
+.header {
+  display: flex;
+  background-image: linear-gradient(rgb(27, 75, 206), #46c4ff);
+  color: white;
+  align-items: center;
+  margin: -60;
+  justify-content: space-around;
+  font-size: 25px;
+}
+  
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 20px;
+}
+
+.search-form {
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+input.search {
+  margin: 50;
+  outline: 0;
+  border: 4px solid black;
+  width: 100%;
+  position: relative;
+  top: 10px;
+  left: -50px;
+  z-index: 2;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.suggestions {
+  margin: -100;
+  padding: 100;
+  left: -10;
+  position: relative;
+  text-transform: lowercase;
+}
+
+.suggestions li {
+  background-image: linear-gradient(orange, white);
+  border: 4px solid black;
+  border-radius: 5px;
+  margin: 10;
+  width: 100%;
+  margin-right: 100;
+  padding: 50px;
+  transition: background 0.2s;
+  display: flex;
+  justify-content: space-between;
+}
+
+span.name {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+span.population {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+span.match {
+  background-color: #46c4ff;
+}
+
+@media screen and (max-width: 1600px) {
+  .container {
+      justify-content: center;
+  }
+  
+}

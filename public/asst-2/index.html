@@ -1,0 +1,62 @@
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INST377 Assignment 2 for Chris Davis, Brandon McCoy, and Jason Choi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class = header>
+        <h1>Assignment 2</h1>
+    </div>
+
+    <form>
+        <input type="text", class="search", placeholder="Filter by name or category">
+        <ul class="suggestions"> 
+        </ul>
+    </form>
+
+<script>
+    const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json'
+
+    const restaurants = [];
+    fetch(endpoint)
+        .then(blob => blob.json())
+        .then(data => restaurants.push(...data))
+    
+    function findMatches(wordToMatch, restaurants) {
+        return restaurants.filter(info => {
+            const regex = new RegExp(wordToMatch, 'gi')
+            return info.name.match(regex) || info.category.match(regex)
+        });
+    }
+
+    function displayMatches() {
+        const matchArray = findMatches(this.value, restaurants);
+        const html = matchArray.map(info => {
+            const regex = new RegExp(this.value, 'gi');
+            const restaurantName = info.name.replace(regex, `<span class="match">${this.value}</span>`);
+            const categoryName = info.category.replace(regex, `<span class="match">${this.value}</span>`);
+            return `
+                <li>
+                    <span class="name">${restaurantName}, ${categoryName}</span>
+                    <span class="population">${info.address_line_1}, ${info.city} ${info.state}, ${info.zip}</span>
+                </li>
+            `;
+        }).join('');
+        suggestions.innerHTML = html;
+    }
+
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+
+    searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', displayMatches);
+
+
+</script>
+</body>
+</html>
