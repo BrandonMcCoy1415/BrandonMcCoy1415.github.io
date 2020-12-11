@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Quiz</title>
+    <link href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class='header'>
+      <h1>Which Movie Should You Watch?</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Documentation.html">Documentation</a></li>
+      </ul>
+    </nav>
+  </div>
+
+    <div class='main'>
+      <div class='article'>
+        <h2>Results</h2>
+        <form action="/api" method="post">
+          <ul class="flex-outer">
+            <ul>
+                <label for="result1">Result 1</label> 
+            </ul>
+            <ul>
+                <label for="result2">Result 2</label> 
+            </ul>
+            <ul>
+                <label for="result3">Result 3</label>
+            </ul>
+            <ul>
+              <button type="retake" name="retake" onclick="localStorage.clear()" id="retake"><a href= "index.html">Take Quiz Again?</a></button>
+            </ul>
+          </ul>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

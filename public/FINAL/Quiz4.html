@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Quiz</title>
+    <link href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class='header'>
+      <h1>Which Movie Should You Watch?</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Documentation.html">Documentation</a></li>
+      </ul>
+    </nav>
+  </div>
+
+    <div class='main'>
+      <div class='article'>
+        <h2>Ages of watchers?</h2>
+        <form action="/api" method="post">
+            <li>
+                <ul class="flex-inner">
+                    <li>
+                        <input type="checkbox" id="Babies" name="age">
+                        <label for="Babies">Babies</label>
+                      </li>
+                    <li>
+                        <input type="checkbox" id="Little Kids" name="age">
+                        <label for="Little Kids">Little kids (3-10)</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Pre-teens" name="age">
+                        <label for="Pre-teens">Pre-teens (10-12)</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Teens" name="age">
+                        <label for="Teens">Teens (13-17)</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="Adults" name="age">
+                        <label for="Adults">Adults (18 and up)</label>
+                      </li>
+                </ul>
+              </li>
+            <ul>
+              <button type="next" name="next" onclick="getCheckedBoxes('age')" id="next"><a href= "Quiz5.html">Next</a></button>
+              <button type="back" name="back" id="back"><a href="Quiz3.html">Back</a></button>
+            </ul>
+          </ul>
+        </form>
+        </div>
+    </div>
+    <script> function getCheckedBoxes(chkboxName) {
+      var checkboxes = document.getElementsByName(chkboxName);
+      var checkboxesChecked = [];
+      // loop over them all
+      for (var i=0; i<checkboxes.length; i++) {
+         // And stick the checked ones onto an array...
+         if (checkboxes[i].checked) {
+            checkboxesChecked.push(checkboxes[i]);
+         }
+      }
+      // Return the array if it is non-empty, or null
+      if (checkboxesChecked[0].id == "Babies") {
+          localStorage.setItem("Rated", "G"); 
+      }else if (checkboxesChecked[0].id == "Little Kids") {
+          localStorage.setItem("Rated", "G");
+      }else if(checkboxesChecked[0].id == "Pre-teens"){
+          localStorage.setItem("Rated", "PG");
+      }else if(checkboxesChecked[0].id == "Teens"){
+          localStorage.setItem("Rated", "PG-13");
+      }else if(checkboxesChecked[0].id == "Adults"){
+          localStorage.setItem("Rated", "R");
+      }
+    }</script>
+  </body>
+</html>

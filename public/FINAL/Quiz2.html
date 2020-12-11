@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Quiz</title>
+    <link href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class='header'>
+      <h1>Which Movie Should You Watch?</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Documentation.html">Documentation</a></li>
+      </ul>
+    </nav>
+  </div>
+
+    <div class='main'>
+      
+      <div class='article'>
+        <h2>How Would You Best Describe Your Mood?</h2>
+        <form action="/api" method="post">
+          <ul class="flex-outer">
+            <ul>
+              <input type="checkbox" id="Happy" name="mood">
+              <label for="Happy">Happy</label>
+            </ul>
+            <ul>
+              <input type="checkbox" id="Gloomy" name="mood">
+              <label for="Gloomy">Gloomy</label>
+            </ul>
+            <ul>
+              <input type="checkbox" id="Anxious" name="mood">
+              <label for="Anxious">Anxious</label>
+            </ul>
+            <ul>
+              <input type="checkbox" id="Relaxed" name="mood">
+              <label for="Relaxed">Relaxed</label>
+            </ul>
+            <ul>
+              <input type="checkbox" id="Bored" name="mood">
+              <label for="Bored">Bored</label>
+            </ul>
+            <ul>
+              <input type="checkbox" id="Combo" name="mood">
+              <label for="Combo">Combo</label>
+            </ul>
+            <ul>
+              <button type="next" name="next" onclick="getCheckedBoxes('mood')" id="next"><a href= "Quiz3.html">Next</a></button>
+              <button type="back" name="back" id="back"><a href="Quiz1.html">Back</a></button>
+            </ul>
+          </ul>
+        </form>
+        <script> function getCheckedBoxes(chkboxName) {
+          var checkboxes = document.getElementsByName(chkboxName);
+          var checkboxesChecked = [];
+          // loop over them all
+          for (var i=0; i<checkboxes.length; i++) {
+             // And stick the checked ones onto an array...
+             if (checkboxes[i].checked) {
+                checkboxesChecked.push(checkboxes[i]);
+             }
+          }
+          // Return the array if it is non-empty, or null
+          if (checkboxesChecked[0].id == "Happy") {
+              localStorage.setItem("Genre", "Comedy, Action, Drama, Sci-Fi, Musical, Family"); 
+          }else if (checkboxesChecked[0].id == "Gloomy") {
+              localStorage.setItem("Genre", "comedy, action, adventure, romance, sci-fi, musical, family");
+          }else if(checkboxesChecked[0].id == "Anxious"){
+              localStorage.setItem("Genre", "comedy, action, adventure, musical, family");
+          }else if(checkboxesChecked[0].id == "Relaxed"){
+              localStorage.setItem("Genre", "documentary, romance, drama");
+          }else if(checkboxesChecked[0].id == "Bored"){
+              localStorage.setItem("Genre", "action, comedy, horror, thriller, sci-fi");
+          }else if(checkboxesChecked[0].id == "Combo"){
+              
+          }
+        }</script>
+        </div>
+    </div>
+    
+    
+  </body>
+</html>

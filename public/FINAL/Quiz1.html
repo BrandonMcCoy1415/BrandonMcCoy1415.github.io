@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Quiz</title>
+    <link href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class='header'>
+      <h1>Which Movie Should You Watch?</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Documentation.html">Documentation</a></li>
+      </ul>
+    </nav>
+  </div>
+
+    <div class='main'>
+      <div class='form'>
+        <h2>Who Are Your Favorite Actors & Actresses?</h2>
+        <form action="/api" method="post">
+          <ul class="flex-outer">
+            <ul>
+              <label for="entry1">1</label>
+              <input type="text" name="entry" id="entry1" maxlength="140" >
+            </ul>
+            <ul>
+              <label for="entry2">2</label>
+              <input type="text" name="entry" id="entry2" maxlength="140" >
+            </ul>
+            <ul>
+              <label for="entry3">3</label>
+              <input type="text" name="entry" id="entry3" maxlength="140" >
+            </ul>
+            <ul>
+              <button type ="submit" name = "submit"> submit</button>
+              <button type="next" name="next" onclick="getNames()" id="next"><a href= "Quiz2.html">Next</a></button>
+              <button type="back" name="back" id="back"><a href="index.html">Back</a></button>
+            </ul>
+          </ul>
+        </form>
+      </div>
+    </div>
+    <script> function getNames() {
+      var name1 = document.getElementById("entry1");
+      var name2 = document.getElementById("entry2");
+      var name3 = document.getElementById("entry3");
+      localStorage.setItem("Name1", String(name1))
+      localStorage.setItem("Name2", String(name2))
+      localStorage.setItem("Name3", String(name3))
+    }</script>
+  </body>
+</html>
